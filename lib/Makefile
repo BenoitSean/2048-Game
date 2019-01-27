@@ -14,4 +14,4 @@ libGame2048.a: $(OBJ)
 	$(AR) -r $@ $(OBJ) 
 
 %.o:%.cpp
-	$(CXX) -c -o $@ -I . -I ../include $< -Wall -Werror
+	$(CXX) -g -c -o $@ -I . -I ../include $< -Wall -Werror

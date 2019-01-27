@@ -13,6 +13,33 @@
 
 
 int user_input(){
+    char input;
+
+     while(1)
+    {
+        std::cin >> input;
+        
+        switch(input)
+        {
+            case 'u':
+               return 0;
+                break;
+		    case 'r':
+                return 1;
+			    break;
+		    case 'd':
+			    return 2;
+			    break;
+		    case 'l':
+                return 3;
+                break;
+            default:
+                break;
+        } 
+        
+    }
+
+    /*
     HANDLE hInput = GetStdHandle(STD_INPUT_HANDLE);
     DWORD NumInputs = 0;
     DWORD InputsRead = 0;
@@ -25,7 +52,7 @@ int user_input(){
     while(running)
     {
         ReadConsoleInput(hInput, &irInput, 1, &InputsRead);
-        //std::cout << irInput.Event.KeyEvent.wVirtualKeyCode << std::endl;
+        std::cout << irInput.Event.KeyEvent.wVirtualKeyCode << std::endl;
         
         switch(irInput.Event.KeyEvent.wVirtualKeyCode)
         {
@@ -47,6 +74,7 @@ int user_input(){
         
     }
     return -1;
+    */
 }
 
 
@@ -90,6 +118,7 @@ int turn(Board main_board){
     std::string values[16];
     find_values(values, main_board);
     graphics(values);
+    
     move(user_input(),main_board);
     return 0;
 }

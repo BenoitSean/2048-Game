@@ -89,25 +89,33 @@ void move_block_left(Board main_board, int pos){
 }
 void move_up(Board main_board){
     for(int i = 4; i < 16; i++){
-        move_block_up(main_board, i);
+        if(main_board.spots[i] != NULL){
+            move_block_up(main_board, i);
+        }
     }
 }
 void move_right(Board main_board){
     for(int i = 2; i >= 0; i++){
         for(int j = 0; j <= 12; j += 4){
-            move_block_right(main_board, i + j);
+            if(main_board.spots[i+j] != NULL){
+                move_block_right(main_board, i + j);
+            }
         }
     }
 }
 void move_down(Board main_board){
-    for(int i = 11; i >= 0; i++){
-        move_block_up(main_board, i);
+    for(int i = 11; i >= 0; i--){
+        if(main_board.spots[i] != NULL){
+            move_block_down(main_board, i);
+        }
     }
 }
 void move_left(Board main_board){
     for(int i = 1; i <= 3; i++){
         for(int j = 0; j <= 12; j += 4){
-            move_block_left(main_board, i + j);
+            if(main_board.spots[i+j] != NULL){
+                move_block_left(main_board, i + j);
+            }
         }
     }
 }
